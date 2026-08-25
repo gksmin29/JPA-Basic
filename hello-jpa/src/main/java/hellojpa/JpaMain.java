@@ -21,13 +21,11 @@ public class JpaMain {
         // 코드
         try {
 
-            // 영속
-            Member member = new Member(200L, "member200");
+            Member member = new Member();
+            member.setUserName("C");
+
             em.persist(member);
 
-            em.flush();
-
-            System.out.println("================================");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
