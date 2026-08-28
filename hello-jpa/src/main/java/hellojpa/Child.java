@@ -1,15 +1,9 @@
 package hellojpa;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
 
 @Entity
-public class Product {
+public class Child {
 
     @Id
     @GeneratedValue
@@ -17,8 +11,9 @@ public class Product {
 
     private String name;
 
-    @OneToMany(mappedBy = "product")
-    private List<MemberProduct> memberProducts = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Parent parent;
 
     public Long getId() {
         return id;
@@ -36,5 +31,11 @@ public class Product {
         this.name = name;
     }
 
+    public Parent getParent() {
+        return parent;
+    }
 
+    public void setParent(Parent parent) {
+        this.parent = parent;
+    }
 }

@@ -1,8 +1,10 @@
 package jpabook.jpashop;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import jpabook.jpashop.domain.Book;
-import jpabook.jpashop.domain.Order;
 
 public class JpaMain {
 
